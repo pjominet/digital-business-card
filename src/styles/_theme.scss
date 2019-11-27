@@ -1,0 +1,56 @@
+@import 'variables';
+
+/* bootstrap variable override */
+$theme-colors: (
+    "dark": $dark,
+    "light": $light,
+    "primary": $primary,
+    "secondary": $secondary,
+    "danger": $danger,
+    "warning": $warning,
+    "success": $success,
+    "info": $info
+);
+
+$enable-responsive-font-sizes: true;
+$enable-rounded: true;
+$input-focus-border-color: lighten($primary, 15%);
+
+/* Load Bootstrap to save overrides */
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+/* override mixins */
+@import 'mixins';
+
+/* Bootstrap Button Extensions */
+@mixin bootstrap-button($bg-color) {
+    @include button-variant($bg-color, $bg-color,
+        darken($bg-color, 7.5%), darken($bg-color, 10%),
+        darken($bg-color, 10%), darken($bg-color, 12.5%));
+}
+
+.btn {
+    border: none !important;
+    &:focus {
+        outline: none !important;
+    }
+
+    &-primary, &-secondary, &-info, &-danger, &-warning, &-success {
+        @include box-shadow(3px, 3px, 5px, rgba(66, 66, 66, 0.7));
+
+        &:hover:not(:disabled) {
+            @include box-shadow(2px, 2px, 3px, rgba(66, 66, 66, 0.7));
+        }
+    }
+}
+
+.input-group .btn {
+    border: none !important;
+    box-shadow: none !important;
+
+    &:hover:not(:disabled) {
+        box-shadow: none !important;
+        border-top-right-radius: $border-radius !important;
+        border-bottom-right-radius: $border-radius !important;
+    }
+}
