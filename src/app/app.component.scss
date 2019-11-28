@@ -1,4 +1,28 @@
-main {
-    padding-bottom: 100px; /* footer height */
-    padding-top: 2em;
+@import 'variables';
+
+.section-title {
+    & > h1 {
+        font-size: 28px;
+        margin: 0;
+    }
+
+    & > h2 {
+        font-size: 18px;
+        margin: 0;
+    }
+}
+
+header {
+    background-color: $primary;
+    color: $light;
+    height: 40vh;
+}
+
+.border-circle {
+    border: 2px solid $light;
+    padding: 2px;
+}
+
+hr {
+    background-color: $light;
 }

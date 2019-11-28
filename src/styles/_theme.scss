@@ -30,27 +30,38 @@ $input-focus-border-color: lighten($primary, 15%);
 }
 
 .btn {
-    border: none !important;
-    &:focus {
-        outline: none !important;
-    }
+    &-circle {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
 
-    &-primary, &-secondary, &-info, &-danger, &-warning, &-success {
-        @include box-shadow(3px, 3px, 5px, rgba(66, 66, 66, 0.7));
-
-        &:hover:not(:disabled) {
-            @include box-shadow(2px, 2px, 3px, rgba(66, 66, 66, 0.7));
+        & i {
+            position: relative;
+            top: -1px;
         }
-    }
-}
 
-.input-group .btn {
-    border: none !important;
-    box-shadow: none !important;
+        &-sm {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 0.9rem;
+        }
 
-    &:hover:not(:disabled) {
-        box-shadow: none !important;
-        border-top-right-radius: $border-radius !important;
-        border-bottom-right-radius: $border-radius !important;
+        &-lg {
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            font-size: 1.1rem;
+        }
+
+        &-xl {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 1.3rem;
+        }
     }
 }

@@ -1,5 +1,20 @@
-<main class="container-fluid">
-    <router-outlet></router-outlet>
+<header class="d-flex flex-column justify-content-around pb-2">
+    <img class="rounded-circle border-circle mx-auto" src="../assets/img/me-comic.jpg" alt="me" width="40%" height="auto">
+    <div class="section-title">
+        <h1 class="text-center">Patrick Jominet, {{myAge}}</h1>
+        <h2 class="text-center">Software Developer</h2>
+    </div>
+</header>
+
+<main class="container mt-5">
+    <p class="px-3">{{myDescription}}</p>
 </main>
 
-<app-footer></app-footer>
+<hr class="mx-5 my-5">
+
+<nav class="d-flex justify-content-center flex-wrap w-75 mx-auto">
+    <a *ngFor="let link of myLinks" class="btn btn-info btn-circle mx-3 my-1" href="{{link.href}}">
+        <i [class]="link.icon"></i>
+    </a>
+</nav>
+
