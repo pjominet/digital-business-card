@@ -1,7 +1,7 @@
 import {Link} from './Link';
 
-export class Profile {
-    age: number;
+export interface Profile {
+    dateOfBirth: string;
     name: string;
     title: string;
     description: string;

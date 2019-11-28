@@ -1,0 +1,33 @@
+{
+    "dateOfBirth": "1990-12-14",
+    "name": "Patrick Jominet",
+    "title": "Software Engineer",
+    "description": "Full stack developer at Technology Partner, studied at University of Cologne, passionate Gamer and a jack of all trades but master of none \uD83D\uDE02",
+    "links": [
+        {
+            "label": "Stack Overflow",
+            "href": "https://stackoverflow.com/story/pjominet",
+            "icon": "fab fa-stack-overflow"
+        },
+        {
+            "label": "Bitbucket",
+            "href": "https://bitbucket.org/pjominet",
+            "icon": "fab fa-bitbucket"
+        },
+        {
+            "label": "GitHub",
+            "href": "https://github.com/pjominet",
+            "icon": "fab fa-github"
+        },
+        {
+            "label": "Twitter",
+            "href": "https://twitter.com/pjominet",
+            "icon": "fab fa-twitter"
+        },
+        {
+            "label": "Mail",
+            "href": "mailto:jompa010@gmail.com",
+            "icon": "fa fa-envelope"
+        }
+    ]
+}

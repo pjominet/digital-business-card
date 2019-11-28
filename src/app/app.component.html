@@ -1,20 +1,21 @@
-<header class="d-flex flex-column justify-content-around pb-2">
-    <img class="rounded-circle border-circle mx-auto mt-3" src="../assets/img/me.jpg" alt="me">
-    <div class="section-title">
-        <h1 class="text-center">{{myName}},&nbsp;{{myAge}}</h1>
-        <h2 class="text-center">{{myTitle}}</h2>
-    </div>
-</header>
+<ng-container *ngIf="profile">
+    <header class="d-flex flex-column justify-content-around pb-2">
+        <img class="rounded-circle border-circle mx-auto mt-3" src="../assets/img/me.jpg" alt="me">
+        <div class="section-title">
+            <h1 class="text-center">{{profile.name}},&nbsp;{{getAge(profile.dateOfBirth)}}</h1>
+            <h2 class="text-center">{{profile.title}}</h2>
+        </div>
+    </header>
 
-<main class="container mt-5">
-    <p class="px-3 text-center">{{myDescription}}</p>
-</main>
+    <main class="container mt-5">
+        <p class="px-3 text-center">{{profile.description}}</p>
+    </main>
 
-<hr class="mx-5 my-5">
+    <hr class="mx-5 my-5">
 
-<nav class="d-flex justify-content-center flex-wrap w-75 mx-auto">
-    <a *ngFor="let link of myLinks" class="btn btn-info btn-circle mx-3 my-1" href="{{link.href}}">
-        <i [class]="link.icon"></i>
-    </a>
-</nav>
-
+    <nav class="d-flex justify-content-center flex-wrap w-75 mx-auto">
+        <a *ngFor="let link of profile.links" class="btn btn-info btn-circle mx-3 my-1" href="{{link.href}}">
+            <i [class]="link.icon"></i>
+        </a>
+    </nav>
+</ng-container>

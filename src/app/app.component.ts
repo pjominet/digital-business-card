@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {Link} from '../models/Link';
+import {Profile} from '../models/Profile';
+import * as data from '../assets/data/profile.json';
 
 @Component({
     selector: 'app-root',
@@ -8,29 +9,13 @@ import {Link} from '../models/Link';
 })
 export class AppComponent {
 
-    private myBirthDay: Date;
-    public myAge: number;
-    public myName: string;
-    public myTitle: string;
-    public myDescription: string;
-    public myLinks: Link[];
+    public profile: Profile;
 
     constructor() {
-        this.myBirthDay = new Date(1990, 12, 14);
-        this.myAge = this.calculateAge();
-        this.myName = 'Patrick Jominet';
-        this.myTitle = 'Software Engineer';
-        this.myDescription = 'Full stack developer at Technology Partner, studied at University of Cologne, passionate Gamer and expert in many things';
-        this.myLinks = [
-            new Link('Stack Overflow', 'https://stackoverflow.com/story/pjominet', 'fab fa-stack-overflow'),
-            new Link('Bitbucket', 'https://bitbucket.org/pjominet', 'fab fa-bitbucket'),
-            new Link('GitHub', 'https://github.com/pjominet', 'fab fa-github'),
-            new Link('Twitter', 'https://twitter.com/pjominet', 'fab fa-twitter'),
-            new Link('Mail', 'mailto:jompa010@gmail.com', 'fa fa-envelope')
-        ];
+        this.profile = (data as any).default;
     }
 
-    private calculateAge(): number {
-        return Math.abs(new Date(Date.now() - this.myBirthDay.getTime()).getUTCFullYear() - 1970);
+    public getAge(dateOfBirth: string): number {
+        return Math.abs(new Date(Date.now() - new Date(Date.parse(dateOfBirth)).getTime()).getUTCFullYear() - 1970);
     }
 }
