@@ -1,15 +1,8 @@
 @import 'variables';
 
-.section-title {
-    & > h1 {
-        font-size: 28px;
-        margin: 0;
-    }
-
-    & > h2 {
-        font-size: 18px;
-        margin: 0;
-    }
+main{
+    position: relative;
+    z-index: 2;
 }
 
 header {
@@ -28,6 +21,18 @@ header {
             height: 275px;
         }
     }
+
+    .header-title {
+        & > h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        & > h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+    }
 }
 
 .border-circle {
@@ -37,4 +42,9 @@ header {
 
 hr {
     background-color: $light;
+    max-width: 70%;
+
+    @media (min-width: $bp-md) {
+        max-width: 30%;
+    }
 }

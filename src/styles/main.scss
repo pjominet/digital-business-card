@@ -3,6 +3,7 @@
 html, body {
     font-family: $font-family-sans-serif;
     margin: 0;
+    overflow: hidden;
 }
 
 body {
@@ -10,4 +11,33 @@ body {
     height: 100vh;
     background-color: $dark;
     color: $light;
+}
+
+.triangle-bg {
+    position: relative;
+    background: lighten($dark, 2%);
+
+    &::after, &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform-origin: right top;
+    }
+
+    &::after {
+        top: -100%;
+        background: lighten($dark, 4%);
+        transform: skewY(-15deg);
+    }
+
+    &::before {
+        top: 0;
+        background: $dark;
+        transform: skewY(-45deg);
+    }
+}
+span {
+
 }
