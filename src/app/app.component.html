@@ -1,21 +1,30 @@
 <main *ngIf="profile">
-    <header class="d-flex flex-column justify-content-around pb-2">
-        <img class="rounded-circle border-circle mx-auto mt-3" src="../assets/img/me.jpg" alt="me">
+    <header class="d-flex flex-column justify-content-center pb-2">
+        <img class="rounded-circle border-circle mx-auto my-3" src="../assets/img/me.jpg" alt="me">
         <div class="header-title">
             <h1 class="text-center">{{profile.name}},&nbsp;{{getAge(profile.dateOfBirth)}}</h1>
             <h2 class="text-center">{{profile.title}}</h2>
         </div>
     </header>
 
-    <section class="container mt-5">
-        <p class="px-3 text-center">{{profile.description}}</p>
+    <section class="container mt-5" id="description">
+        <p class="px-3 text-center" [innerHTML]="profile.description"></p>
     </section>
 
-    <hr class="mx-auto my-5">
+    <hr class="mx-auto my-4 my-md-5">
 
     <nav class="d-flex justify-content-center flex-wrap w-75 mx-auto">
-        <a *ngFor="let link of profile.links" class="btn btn-info btn-circle mx-3 my-1" href="{{link.href}}">
+        <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-3" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
             <i [class]="link.icon"></i>
         </a>
+        <button class="btn btn-secondary btn-circle mx-3 my-3" (click)="openModal(qrCodeModal)" ngbTooltip="Share me!">
+            <i class="fa fa-share"></i>
+        </button>
     </nav>
 </main>
+
+<ng-template #qrCodeModal let-modal>
+    <div class="modal-body d-flex justify-content-center">
+        <qrcode [qrdata]="qrUrl" [size]="75" [level]="'M'"></qrcode>
+    </div>
+</ng-template>

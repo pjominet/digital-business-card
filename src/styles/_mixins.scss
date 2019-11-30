@@ -23,3 +23,17 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+
+@mixin radial-gradient($start-color, $start-stop, $middle-color, $middle-stop, $end-color, $end-stop) {
+    background: $start-color;
+    background: -moz-radial-gradient(circle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+    background: -webkit-radial-gradient(circle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+    background: radial-gradient(circle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+}
+
+@mixin linear-gradient($angle, $start-color, $start-stop, $middle-color, $middle-stop, $end-color, $end-stop) {
+    background: $start-color;
+    background: -moz-linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+    background: -webkit-linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+    background: linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+}

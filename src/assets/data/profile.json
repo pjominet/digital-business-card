@@ -2,32 +2,37 @@
     "dateOfBirth": "1990-12-14",
     "name": "Patrick Jominet",
     "title": "Software Engineer",
-    "description": "Full stack developer at Technology Partner, studied at University of Cologne, passionate Gamer and a jack of all trades but master of none \uD83D\uDE02",
+    "description": "Full stack developer at <a href=\"https://technologypartner.io\" target=\"_blank\">Technology Partner</a>, studied at <a href=\"https://http://uni-koeln.de/\" target=\"_blank\">University of Cologne</a>, passionate gamer and a jack of all trades but master of none \uD83D\uDE02",
     "links": [
         {
             "label": "Stack Overflow",
             "href": "https://stackoverflow.com/story/pjominet",
-            "icon": "fab fa-stack-overflow"
+            "icon": "fab fa-stack-overflow",
+            "tooltip": "My Story"
         },
         {
             "label": "Bitbucket",
             "href": "https://bitbucket.org/pjominet",
-            "icon": "fab fa-bitbucket"
+            "icon": "fab fa-bitbucket",
+            "tooltip": "My Bitbucket"
         },
         {
             "label": "GitHub",
             "href": "https://github.com/pjominet",
-            "icon": "fab fa-github"
+            "icon": "fab fa-github",
+            "tooltip": "My GitHub"
         },
         {
             "label": "Twitter",
             "href": "https://twitter.com/pjominet",
-            "icon": "fab fa-twitter"
+            "icon": "fab fa-twitter",
+            "tooltip": "My Twitter"
         },
         {
             "label": "Mail",
             "href": "mailto:jompa010@gmail.com",
-            "icon": "fa fa-envelope"
+            "icon": "fa fa-envelope",
+            "tooltip": "Mail me!"
         }
     ]
 }
