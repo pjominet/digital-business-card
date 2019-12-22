@@ -39,24 +39,24 @@ $input-focus-border-color: lighten($primary, 15%);
             top: -1px;
         }
 
-        &-sm {
+        @media (min-width: $bp-sm) {
             width: 35px;
             height: 35px;
             line-height: 35px;
             font-size: 0.9rem;
         }
 
-        &-lg {
+        @media (min-width: $bp-lg) {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: $bp-xl) {
             width: 55px;
             height: 55px;
             line-height: 55px;
-            font-size: 1.1rem;
-        }
-
-        &-xl {
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
             font-size: 1.3rem;
         }
     }

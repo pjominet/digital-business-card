@@ -2,12 +2,14 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Profile} from '../models/Profile';
 import * as data from '../assets/data/profile.json';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {popup, singlePopup} from './app.animations';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None,
+    animations: [popup, singlePopup]
 })
 export class AppComponent implements OnInit {
 

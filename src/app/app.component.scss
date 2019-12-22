@@ -2,70 +2,114 @@
 @import 'mixins';
 
 header {
-    @include linear-gradient(345deg, $primary, 50%, desaturate(lighten($primary, 33%), 60%), 80%, lighten($primary, 80%), 115%);
-    @media (min-width: $bp-md) {
-        @include radial-gradient($primary, 50%, desaturate(lighten($primary, 33%), 60%), 85%, lighten($primary, 80%), 115%);
-    }
+    height: 45vh;
+    background-color: $primary;
+    background-attachment: fixed;
 
-    color: $light;
-    height: 40vh;
+    & > div {
+        color: $light;
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        background: inherit;
 
-    & > img {
-        width: 150px;
-        height: 150px;
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: -10;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            @include box-shadow(0, 0, 200px, rgba(white, .5), inset);
+            filter: blur(5px);
+            background: inherit;
+
+            @media (min-width: $bp-md) {
+                @include box-shadow(0, 0, 1000px, rgba(white, .5), inset);
+            }
+        }
+
+        & > img {
+            width: 175px;
+            height: 175px;
+
+            @media (min-width: $bp-sm) {
+                width: 200px;
+                height: 200px;
+            }
+
+            @media (min-width: $bp-md) {
+                width: 275px;
+                height: 275px;
+            }
+        }
+
+        .header-title {
+            & > h1 {
+                font-size: 28px;
+                margin: 0;
+            }
+
+            & > h2 {
+                font-size: 18px;
+                margin: 0;
+            }
+        }
+
+        .border-circle {
+            border: 2px solid $light;
+            padding: 2px;
+        }
     }
+}
+
+#quickLinks {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: none;
+    padding-top: 1.5em;
 
     @media (min-width: $bp-sm) {
-        & > img {
-            width: 200px;
-            height: 200px;
-        }
+        border-top: 1px solid $light;
+        padding-bottom: 2em;
     }
 
     @media (min-width: $bp-md) {
-        & > img {
-            width: 275px;
-            height: 275px;
-        }
+        width: 50%;
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
 
-    .header-title {
-        & > h1 {
-            font-size: 28px;
-            margin: 0;
-        }
+}
 
-        & > h2 {
-            font-size: 18px;
-            margin: 0;
-        }
+#description {
+    padding-top: 1.5em;
+
+    @media (min-width: $bp-sm) {
+        padding-top: 2em;
+        padding-bottom: 2em;
     }
-}
-
-.border-circle {
-    border: 2px solid $light;
-    padding: 2px;
-}
-
-hr {
-    background-color: $light;
-    max-width: 70%;
 
     @media (min-width: $bp-md) {
-        max-width: 40%;
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
-}
 
-#description p {
-    a {
-        color: $primary;
-        text-decoration: none;
-        font-weight: bold;
+    p {
+        margin: 0;
 
-        &:hover {
-            color: lighten($primary, 10%);
+        a {
+            color: $primary;
             text-decoration: none;
             font-weight: bold;
+
+            &:hover {
+                color: lighten($primary, 10%);
+                text-decoration: none;
+                font-weight: bold;
+            }
         }
     }
 }

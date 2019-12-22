@@ -1,26 +1,28 @@
 <main *ngIf="profile">
-    <header class="d-flex flex-column justify-content-center pb-2">
-        <img class="rounded-circle border-circle mx-auto my-3" src="../assets/img/me.jpg" alt="me">
-        <div class="header-title">
-            <h1 class="text-center">{{profile.name}},&nbsp;{{getAge(profile.dateOfBirth)}}</h1>
-            <h2 class="text-center">{{profile.title}}</h2>
+    <header>
+        <div class="d-flex flex-column justify-content-center">
+            <img class="rounded-circle border-circle mx-auto my-3" src="../assets/img/me.jpg" alt="me">
+            <div class="header-title">
+                <h1 class="text-center">{{profile.name}},&nbsp;{{getAge(profile.dateOfBirth)}}</h1>
+                <h2 class="text-center">{{profile.title}}</h2>
+            </div>
         </div>
     </header>
 
-    <section class="container mt-5" id="description">
+    <div class="container" id="description">
         <p class="px-3 text-center" [innerHTML]="profile.description"></p>
-    </section>
+    </div>
 
-    <hr class="mx-auto my-4 my-md-5">
-
-    <nav class="d-flex justify-content-center flex-wrap w-75 mx-auto">
-        <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-3" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
+    <nav class="d-flex justify-content-center flex-wrap" id="quickLinks" [@popupAnimation]="profile.links.length" @singlePopupAnimation>
+        <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
             <i [class]="link.icon"></i>
         </a>
-        <button class="btn btn-secondary btn-circle mx-3 my-3" (click)="openModal(qrCodeModal)" ngbTooltip="Share me!">
+        <button class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2 single-popup" (click)="openModal(qrCodeModal)" ngbTooltip="Share me!">
             <i class="fa fa-share"></i>
         </button>
     </nav>
+
+    <app-bubbles></app-bubbles>
 </main>
 
 <ng-template #qrCodeModal let-modal>

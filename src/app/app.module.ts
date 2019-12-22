@@ -6,10 +6,12 @@ import {QRCodeModule} from 'angularx-qrcode';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
+import { BubblesComponent } from './bubbles/bubbles.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        BubblesComponent
     ],
     imports: [
         BrowserModule,

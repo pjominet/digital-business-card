@@ -5,14 +5,13 @@ $font-family-sans-serif: 'Titillium Web', 'Open Sans', sans-serif;
 $font-family-serif: 'Roboto Slab', serif;
 
 /* theme colors */
-$dark: #2E2E2E;
+$dark: #2e2e2e;
 $light: #e6eff3;
-$primary: #009688;
-$secondary: #5652ca;
+$primary: #2e7d32;
+$secondary: #ef6c00;
 
-/* custom breakpoints */
-$bp-sm: 576px !default;
+/* breakpoints */
+$bp-sm: 375px !default;
 $bp-md: 768px !default;
 $bp-lg: 992px !default;
 $bp-xl: 1200px !default;
-$bp-xxl: 1900px !default;

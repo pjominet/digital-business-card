@@ -1,21 +1,13 @@
-@mixin box-shadow($top, $left, $blur, $color) {
-    -webkit-box-shadow: $top $left $blur $color !important;
-    -moz-box-shadow: $top $left $blur $color !important;
-    box-shadow: $top $left $blur $color !important;
+@mixin box-shadow($top, $left, $blur, $color, $property: none) {
+    -webkit-box-shadow: $property $top $left $blur $color !important;
+    -moz-box-shadow: $property $top $left $blur $color !important;
+    box-shadow: $property $top $left $blur $color !important;
 }
 
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius !important;
     -moz-border-radius: $radius !important;
     border-radius: $radius !important;
-}
-
-@mixin triangle($size, $color) {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: $size $size 0 $size;
-    border-color: $color transparent transparent transparent;
 }
 
 @mixin split-background-horizontal($top-height, $top-color, $bottom-color) {
@@ -36,4 +28,9 @@
     background: -moz-linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
     background: -webkit-linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
     background: linear-gradient($angle, $start-color $start-stop, $middle-color $middle-stop, $end-color $end-stop);
+}
+
+@mixin background-opacity($color, $opacity: .3) {
+    background: $color;
+    background: rgba($color, $opacity);
 }
