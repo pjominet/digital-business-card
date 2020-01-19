@@ -3,6 +3,7 @@ import {Profile} from '../models/Profile';
 import * as data from '../assets/data/profile.json';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {popup, singlePopup} from './app.animations';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
     selector: 'app-root',
@@ -14,10 +15,16 @@ import {popup, singlePopup} from './app.animations';
 export class AppComponent implements OnInit {
 
     public profile: Profile;
-    public qrUrl: string;
+    public shareUrl: string;
     public showShare: boolean;
+    public showToast: boolean = false;
 
-    constructor(private modal: NgbModal) {
+    public get isDesktop() {
+        return this.deviceService.isDesktop();
+    }
+
+    constructor(private modal: NgbModal,
+                private deviceService: DeviceDetectorService) {
         this.profile = (data as any).default;
         this.showShare = false;
     }
@@ -27,10 +34,10 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.qrUrl = window.location.href;
+        this.shareUrl = window.location.href;
     }
 
-    public openModal(modalContent) {
+    public showQRCode(modalContent) {
         this.modal.open(modalContent, {size: 'sm', centered: true});
     }
 }

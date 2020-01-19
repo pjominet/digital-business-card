@@ -9,7 +9,7 @@ $theme-colors: (
 );
 
 $enable-responsive-font-sizes: true;
-$enable-rounded: true;
+$enable-rounded: false;
 $input-focus-border-color: lighten($primary, 15%);
 
 /* Load Bootstrap to save overrides */

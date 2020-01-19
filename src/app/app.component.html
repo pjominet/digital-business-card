@@ -1,32 +1,43 @@
-<main *ngIf="profile">
-    <header>
-        <div class="d-flex flex-column justify-content-center">
+<div *ngIf="profile">
+    <div class="card mx-auto mt-md-4">
+        <header class="d-flex justify-content-center align-items-center">
             <img class="rounded-circle border-circle mx-auto my-3" src="../assets/img/me.jpg" alt="me">
-            <div class="header-title">
+        </header>
+        <main class="card-body">
+            <div class=" card-title header-title mt-2">
                 <h1 class="text-center">{{profile.name}},&nbsp;{{getAge(profile.dateOfBirth)}}</h1>
                 <h2 class="text-center">{{profile.title}}</h2>
             </div>
-        </div>
-    </header>
+            <p class="card-text text-center py-3" [innerHTML]="profile.description"></p>
 
-    <div class="container" id="description">
-        <p class="px-3 text-center" [innerHTML]="profile.description"></p>
+            <nav class="d-flex justify-content-center flex-wrap" id="quickLinks" [@popupAnimation]="profile.links.length" @singlePopupAnimation>
+                <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
+                    <i [class]="link.icon"></i>
+                </a>
+                <ng-container *ngIf="isDesktop; else mobileShare">
+                    <button class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2 single-popup" (click)="showQRCode(qrCodeModal)" ngbTooltip="Share me!">
+                        <i class="fa fa-share"></i>
+                    </button>
+                </ng-container>
+                <ng-template #mobileShare>
+                    <button class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2 single-popup" ngxClipboard [cbContent]="shareUrl" (cbOnSuccess)="showToast = true">
+                        <i class="fa fa-share"></i>
+                    </button>
+                </ng-template>
+            </nav>
+        </main>
     </div>
+</div>
 
-    <nav class="d-flex justify-content-center flex-wrap" id="quickLinks" [@popupAnimation]="profile.links.length" @singlePopupAnimation>
-        <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
-            <i [class]="link.icon"></i>
-        </a>
-        <button class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2 single-popup" (click)="openModal(qrCodeModal)" ngbTooltip="Share me!">
-            <i class="fa fa-share"></i>
-        </button>
-    </nav>
+<div class="d-flex justify-content-center toast-container">
+    <ngb-toast [autohide]="true" [delay]="1500" *ngIf="showToast" (hide)="showToast = false">
+        URL copied to clipboard<i class="fas fa-check ml-1"></i>
+    </ngb-toast>
+</div>
 
-    <app-bubbles></app-bubbles>
-</main>
 
 <ng-template #qrCodeModal let-modal>
     <div class="modal-body d-flex justify-content-center">
-        <qrcode [qrdata]="qrUrl" [size]="75" [level]="'M'"></qrcode>
+        <qrcode [qrdata]="shareUrl" [size]="150" [level]="'M'"></qrcode>
     </div>
 </ng-template>

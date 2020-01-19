@@ -1,115 +1,79 @@
 @import 'variables';
 @import 'mixins';
 
+.card {
+    border: none !important;
+    background-color: $dark;
+    @media (min-width: $bp-md) {
+        width: 90%;
+        background-color: lighten($dark, 3%);
+    }
+    @media (min-width: $bp-lg) {
+        width: 50%;
+        background-color: lighten($dark, 3%);
+    }
+}
+
 header {
     height: 45vh;
     background-color: $primary;
-    background-attachment: fixed;
+    @include radial-gradient($light, 5%, $primary, 75%, darken($primary, 15%), 100%);
+    @media (min-width: $bp-md) {
+        @include radial-gradient($light, 5%, $primary, 65%, darken($primary, 15%), 100%);
+    }
 
-    & > div {
-        color: $light;
-        position: relative;
-        z-index: 10;
-        height: 100%;
-        background: inherit;
 
-        &:before {
-            content: '';
-            position: absolute;
-            z-index: -10;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            @include box-shadow(0, 0, 200px, rgba(white, .5), inset);
-            filter: blur(5px);
-            background: inherit;
+    & > img {
+        width: 250px;
+        height: 250px;
 
-            @media (min-width: $bp-md) {
-                @include box-shadow(0, 0, 1000px, rgba(white, .5), inset);
-            }
-        }
-
-        & > img {
-            width: 175px;
-            height: 175px;
-
-            @media (min-width: $bp-sm) {
-                width: 200px;
-                height: 200px;
-            }
-
-            @media (min-width: $bp-md) {
-                width: 275px;
-                height: 275px;
-            }
-        }
-
-        .header-title {
-            & > h1 {
-                font-size: 28px;
-                margin: 0;
-            }
-
-            & > h2 {
-                font-size: 18px;
-                margin: 0;
-            }
-        }
-
-        .border-circle {
-            border: 2px solid $light;
-            padding: 2px;
+        @media (min-width: $bp-md) {
+            width: auto;
+            height: auto;
         }
     }
+}
+
+.header-title {
+    & > h1 {
+        font-size: 28px;
+        margin: 0;
+    }
+
+    & > h2 {
+        font-size: 18px;
+        margin: 0;
+    }
+}
+
+.border-circle {
+    border: 2px solid $light !important;
+    padding: 2px !important;
 }
 
 #quickLinks {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    border-top: none;
+    border-top: 1px solid $light;
     padding-top: 1.5em;
 
-    @media (min-width: $bp-sm) {
-        border-top: 1px solid $light;
-        padding-bottom: 2em;
-    }
-
     @media (min-width: $bp-md) {
-        width: 50%;
-        padding-top: 3em;
-        padding-bottom: 3em;
+        width: 80%;
     }
 
 }
 
-#description {
-    padding-top: 1.5em;
+.card-body {
+    p > a {
+        color: $primary;
+        text-decoration: none;
+        font-weight: bold;
 
-    @media (min-width: $bp-sm) {
-        padding-top: 2em;
-        padding-bottom: 2em;
-    }
-
-    @media (min-width: $bp-md) {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-
-    p {
-        margin: 0;
-
-        a {
-            color: $primary;
+        &:hover {
+            color: lighten($primary, 10%);
             text-decoration: none;
             font-weight: bold;
-
-            &:hover {
-                color: lighten($primary, 10%);
-                text-decoration: none;
-                font-weight: bold;
-            }
         }
     }
 }
@@ -120,5 +84,21 @@ header {
         width: inherit;
         margin-left: auto;
         margin-right: auto;
+        @include border-radius(10px);
+    }
+}
+
+.toast-container {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    left: 0;
+
+    ngb-toast {
+        border: none;
+        .toast-body {
+            background-color: $primary;
+            color: lighten($primary, 25%);
+        }
     }
 }

@@ -4,21 +4,23 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {QRCodeModule} from 'angularx-qrcode';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DeviceDetectorModule} from 'ngx-device-detector';
+import {ClipboardModule} from 'ngx-clipboard';
 
 import {AppComponent} from './app.component';
-import { BubblesComponent } from './bubbles/bubbles.component';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        BubblesComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         QRCodeModule,
-        NgbModule
+        NgbModule,
+        DeviceDetectorModule.forRoot(),
+        ClipboardModule
     ],
     providers: [],
     bootstrap: [AppComponent]
