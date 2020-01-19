@@ -4,6 +4,7 @@ import * as data from '../assets/data/profile.json';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {popup, singlePopup} from './app.animations';
 import {DeviceDetectorService} from 'ngx-device-detector';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -24,16 +25,18 @@ export class AppComponent implements OnInit {
     }
 
     constructor(private modal: NgbModal,
-                private deviceService: DeviceDetectorService) {
+                private deviceService: DeviceDetectorService,
+                private titleService: Title) {
         this.profile = (data as any).default;
         this.showShare = false;
     }
 
-    public getAge(dateOfBirth: string): number {
-        return Math.abs(new Date(Date.now() - new Date(Date.parse(dateOfBirth)).getTime()).getUTCFullYear() - 1970);
+    public getFullName(): string {
+        return this.profile.name + ', ' + Math.abs(new Date(Date.now() - new Date(Date.parse(this.profile.dateOfBirth)).getTime()).getUTCFullYear() - 1970);
     }
 
     ngOnInit(): void {
+        this.titleService.setTitle(this.getFullName());
         this.shareUrl = window.location.href;
     }
 
