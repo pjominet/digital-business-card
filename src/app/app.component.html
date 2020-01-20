@@ -11,7 +11,7 @@
             <p class="card-text text-center py-3" [innerHTML]="profile.description"></p>
 
             <nav class="d-flex justify-content-center flex-wrap" id="quickLinks" [@popupAnimation]="profile.links.length" @singlePopupAnimation>
-                <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2" href="{{link.href}}" ngbTooltip="{{link.tooltip}}">
+                <a *ngFor="let link of profile.links" class="btn btn-secondary btn-circle mx-3 my-sm-3 my-2" href="{{link.href}}" target="_blank" ngbTooltip="{{link.tooltip}}">
                     <i [class]="link.icon"></i>
                 </a>
                 <ng-container *ngIf="isDesktop; else mobileShare">
