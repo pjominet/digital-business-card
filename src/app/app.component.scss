@@ -47,8 +47,9 @@ header {
 }
 
 .border-circle {
-    border: 2px solid $light !important;
+    border: 3px solid $dark !important;
     padding: 2px !important;
+    @include box-shadow(0, 0, 3px, $dark);
 }
 
 #quickLinks {
@@ -57,6 +58,10 @@ header {
     margin-right: auto;
     border-top: 1px solid $light;
     padding-top: 1.5em;
+
+    & > a, button {
+        @include box-shadow(0, 0, 3px, $secondary);
+    }
 
     @media (min-width: $bp-md) {
         width: 80%;
@@ -88,7 +93,7 @@ header {
     }
 }
 
-.toast-container {
+#toast-container {
     position: absolute;
     bottom: 5px;
     right: 0;

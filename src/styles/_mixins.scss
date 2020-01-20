@@ -1,19 +1,13 @@
-@mixin box-shadow($top, $left, $blur, $color, $property: none) {
-    -webkit-box-shadow: $property $top $left $blur $color !important;
-    -moz-box-shadow: $property $top $left $blur $color !important;
-    box-shadow: $property $top $left $blur $color !important;
+@mixin box-shadow($top, $left, $blur, $color) {
+    -webkit-box-shadow: $top $left $blur $color !important;
+    -moz-box-shadow: $top $left $blur $color !important;
+    box-shadow: $top $left $blur $color !important;
 }
 
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius !important;
     -moz-border-radius: $radius !important;
     border-radius: $radius !important;
-}
-
-@mixin split-background-horizontal($top-height, $top-color, $bottom-color) {
-    background-image: linear-gradient($top-color, $bottom-color);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
 }
 
 @mixin radial-gradient($start-color, $start-stop, $middle-color, $middle-stop, $end-color, $end-stop) {
